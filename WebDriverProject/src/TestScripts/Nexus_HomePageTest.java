@@ -50,6 +50,7 @@ public class Nexus_HomePageTest {
 		Nexus_HomePage.clickSignOut();
 		Thread.sleep(2000);
 		Nexus_HomePage.verifyLogInButtonIsDisplayed();
+		System.out.println("pushing to gitHub");
 		
 	}
 	
