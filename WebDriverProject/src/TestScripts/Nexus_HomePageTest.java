@@ -30,18 +30,12 @@ public class Nexus_HomePageTest {
 		Nexus_ViewAllGamesPage.FilterByNameField("Skyrim");
 		Thread.sleep(2000);
 		Nexus_ViewAllGamesPage.mouseHoverSkyrim();
-		//Nexus_ViewAllGamesPage.selectSkyrim();
 		Thread.sleep(2000);
 		Nexus_ViewAllGamesPage.mouseHoverPlus();
 		Nexus_ViewAllGamesPage.verifyViewModsIsDisplayed();
 		Nexus_ViewAllGamesPage.verifyAddToFavoritesIsDisplayed();
 		Nexus_ViewAllGamesPage.verifyOptionsInSortByDropdown();
 
-//		Browser.openNewTab("https://www.google.com");
-//		Browser.switchToTab(0);
-//		Browser.closeTab(1);
-//		Browser.switchToTab(0);
-//		Thread.sleep(2000);
 		Nexus_ViewAllGamesPage.selectOptionFromSortByDropdown("name");
 		Nexus_ViewAllGamesPage.FilterByNameField("Fallout");
 		
