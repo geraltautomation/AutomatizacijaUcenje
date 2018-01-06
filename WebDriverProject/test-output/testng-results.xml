@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="73100" started-at="2018-01-01T21:46:48Z" finished-at="2018-01-01T21:48:01Z">
+  <suite name="Default suite" duration-ms="69006" started-at="2018-01-06T23:48:58Z" finished-at="2018-01-06T23:50:07Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="73100" started-at="2018-01-01T21:46:48Z" finished-at="2018-01-01T21:48:01Z">
+    <test name="Default test" duration-ms="69006" started-at="2018-01-06T23:48:58Z" finished-at="2018-01-06T23:50:07Z">
       <class name="TestScripts.Nexus_HomePageTest">
-        <test-method status="PASS" signature="goToNexus()[pri:0, instance:TestScripts.Nexus_HomePageTest@20e2cbe0]" name="goToNexus" is-config="true" duration-ms="24401" started-at="2018-01-01T22:46:48Z" finished-at="2018-01-01T22:47:12Z">
+        <test-method status="PASS" signature="goToNexus()[pri:0, instance:TestScripts.Nexus_HomePageTest@20e2cbe0]" name="goToNexus" is-config="true" duration-ms="25644" started-at="2018-01-07T00:48:58Z" finished-at="2018-01-07T00:49:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- goToNexus -->
-        <test-method status="PASS" signature="test1()[pri:0, instance:TestScripts.Nexus_HomePageTest@20e2cbe0]" name="test1" duration-ms="47789" started-at="2018-01-01T22:47:12Z" finished-at="2018-01-01T22:48:00Z">
+        <test-method status="PASS" signature="test1()[pri:0, instance:TestScripts.Nexus_HomePageTest@20e2cbe0]" name="test1" duration-ms="43342" started-at="2018-01-07T00:49:23Z" finished-at="2018-01-07T00:50:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:TestScripts.Nexus_HomePageTest@20e2cbe0]" name="afterMethod" is-config="true" duration-ms="876" started-at="2018-01-01T22:48:00Z" finished-at="2018-01-01T22:48:01Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:TestScripts.Nexus_HomePageTest@20e2cbe0]" name="afterMethod" is-config="true" duration-ms="0" started-at="2018-01-07T00:50:07Z" finished-at="2018-01-07T00:50:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->

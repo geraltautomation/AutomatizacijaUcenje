@@ -1,6 +1,9 @@
 package TestScripts;
 
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,7 +26,7 @@ public class FirstTest  {
 
 		
 		@Test
-		public void test1() throws InterruptedException {
+		public void test1() throws InterruptedException, IOException {
 			HomePage.clickSignInLink();
 			//HomePage.openSignInNewTab();
 			Thread.sleep(2000);

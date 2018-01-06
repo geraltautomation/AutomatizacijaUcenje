@@ -2,6 +2,7 @@ package TestScripts;
 
 import static org.testng.Assert.fail;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,30 +17,41 @@ import TestScripts.*;
 
 public class Base extends Browser {
 
-	public static WebElement findElement(String xpathExpression) {
-		WebElement element = driver.findElement(By.xpath(xpathExpression));
+	public static WebElement findElement(String xpathExpression) throws IOException {
+		WebElement element = driver.findElement(By.xpath(Locator.testConfig(xpathExpression)));
 		return element;
 	}
 	
-	public static void clickOnElement(String xPathvalue) {
+	public static void clickOnElement(String xPathvalue) throws IOException {
 		
-		driver.findElement(By.xpath(xPathvalue));
+		//driver.findElement(By.xpath(xPathvalue));
 		
-		if(driver.findElement(By.xpath(xPathvalue)) == null) {
-			System.out.println("Fail - Element by name " + driver.findElement(By.xpath(xPathvalue)).getText() + " has not been found.");
+		if(findElement(xPathvalue) == null) {
+			System.out.println("Fail - Element by name " + findElement(xPathvalue).getText() + " has not been found.");
 		} else {
 			//System.out.println("Pass - Element by name \"" + driver.findElement(By.xpath(xPathvalue)).getText() + "\" has been found.");
-			System.out.println("Clicking on element \"" + driver.findElement(By.xpath(xPathvalue)).getText()+"\"");
-			driver.findElement(By.xpath(xPathvalue)).click();
+			System.out.println("Clicking on element \"" + findElement(xPathvalue).getText()+"\"");
+			findElement(xPathvalue).click();
 			
 		}
 	}
 	
-	public static void verifyElementAppears(String xPathValue) {
-		if(driver.findElement(By.xpath(xPathValue)).isDisplayed()) {
-			System.out.println("Pass - Element by name \"" + driver.findElement(By.xpath(xPathValue)).getText() + "\" has been found.");
+	public static void verifyElementAppears(String xPathValue) throws IOException {
+		if(findElement(xPathValue).isDisplayed()) {
+			System.out.println("Pass - Element by name \"" + findElement(xPathValue).getText() + "\" has been found.");
 		}else {
-			System.out.println("Fail - Element by name " + driver.findElement(By.xpath(xPathValue)).getText() + " has not been found.");
+			System.out.println("Fail - Element by name " + findElement(xPathValue).getText() + " has not been found.");
+			fail("Element is not appearing");
+		}
+		
+	}
+	
+	public static void verifyElementAppearsUsingVariables(String xPathValue) {
+		WebElement element = driver.findElement(By.xpath(xPathValue));
+		if(element.isDisplayed()) {
+			System.out.println("Pass - Element by name \"" + element.getText() + "\" has been found.");
+		}else {
+			System.out.println("Fail - Element by name " + element.getText() + " has not been found.");
 			fail("Element is not appearing");
 		}
 		
@@ -47,17 +59,22 @@ public class Base extends Browser {
 	
 	public static void openNewTab(String xPathValue) {
 		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,"t");
-		driver.findElement(By.xpath(xPathValue)).sendKeys(selectLinkOpeninNewTab);
+		try {
+			findElement(xPathValue).sendKeys(selectLinkOpeninNewTab);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	public static void mouseHoverElement(String xPathValue) {
-		WebElement element = driver.findElement(By.xpath(xPathValue));
+	public static void mouseHoverElement(String xPathValue) throws IOException {
+		WebElement element = findElement(xPathValue);
 		Actions action = new Actions(driver);
 		action.moveToElement(element).build().perform();
 	}
 	
-	public static void enterText(String xPathValue, String enterValue) {
-		WebElement textField = driver.findElement(By.xpath(xPathValue));
+	public static void enterText(String xPathValue, String enterValue) throws IOException {
+		WebElement textField = findElement(xPathValue);
 		textField.click();
 		textField.clear();
 		textField.sendKeys(enterValue);
@@ -79,8 +96,8 @@ public class Base extends Browser {
 //		}
 //	}
 	
-	public static void verifyOptionsIsPresentInDropDown(String xpathExpression, String valueToVerify){
-		WebElement elementToFind = driver.findElement(By.xpath(xpathExpression));
+	public static void verifyOptionsIsPresentInDropDown(String xpathExpression, String valueToVerify) throws IOException{
+		WebElement elementToFind = findElement(xpathExpression);
 		Boolean itemFound = false;
 		if(elementToFind == null){
 			System.out.println("Fail - element is not found");
@@ -104,8 +121,8 @@ public class Base extends Browser {
 		}
 	}
 	
-	public static void SelectOptionDropDown(String xpathExpression, String valueToSelect) {
-		Select dropdown = new Select(driver.findElement(By.xpath(xpathExpression)));
+	public static void SelectOptionDropDown(String xpathExpression, String valueToSelect) throws IOException {
+		Select dropdown = new Select(findElement(xpathExpression));
 		dropdown.selectByValue(valueToSelect);
 		
 	}

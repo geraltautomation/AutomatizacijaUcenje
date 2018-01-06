@@ -1,50 +1,54 @@
 package Nexus;
 
-import TestScripts.Base;
+import java.io.IOException;
 
-public class Nexus_HomePage {
+import TestScripts.Base;
+import TestScripts.Locator;
+
+public class Nexus_HomePage  {
 	
-	public static void verifyHomePageOpens() {
-		Base.verifyElementAppears("//h1[text() = 'Welcome to Nexus Mods']");
+	public static void verifyHomePageOpens() throws IOException {
+		Base.verifyElementAppears("welcomeToNexusMods");
 	}
 	
-	public static void mouseHoverAllGames() {
-		Base.mouseHoverElement("//span[@class='currentgame']");
+	public static void mouseHoverAllGames() throws IOException {
+		Base.mouseHoverElement("allGames");
 	}
 	
-	public static void clickViewAll() {
-		Base.clickOnElement("//ul[@class='subnav-actions clearfix']//a[@href='/games/']");
+	public static void clickViewAll() throws IOException {
+		Base.clickOnElement("viewAll");
 	}
 	
-	public static void clickLogIn() {
-		Base.clickOnElement("//div[@class='topnav']//a[@id='login']");
+	public static void clickLogIn() throws IOException {
+		Base.clickOnElement("logIn");
 	}
 	
-	public static void verifyLogInButtonIsDisplayed() {
-		Base.verifyElementAppears("//div[@class='topnav']//a[@id='login']");
+	public static void verifyLogInButtonIsDisplayed() throws IOException {
+		Base.verifyElementAppears("logIn");
 	}
 	
-	public static void usernameField(String username) {
-		Base.enterText("//input[@id='form-username']", username);
+	public static void usernameField(String username) throws IOException {
+		Base.enterText("usernameField", username);
 	}
 	
-	public static void passwordField(String password) {
-		Base.enterText("//input[@id='form-password']", password);
+	public static void passwordField(String password) throws IOException {
+		Base.enterText("passwordField", password);
 	}
 	
-	public static void clickSignInButton() {
-		Base.clickOnElement("//button[@class='btn signin']");
+	public static void clickSignInButton() throws IOException {
+		Base.clickOnElement("signInButton");
 	}
 	
-	public static void verifySingOutIsDisplayed() {
-		Base.verifyElementAppears("//nav[@id='usernav']//a[@id='sign-out']");
+	public static void verifySingOutIsDisplayed() throws IOException {
+		Base.verifyElementAppears("signOut");
 	}
 	
-	public static void clickSignOut() {
-		Base.clickOnElement("//nav[@id='usernav']//a[@id='sign-out']");
+	public static void clickSignOut() throws IOException {
+		Base.clickOnElement("signOut");
 	}
 	
 	public static void verifyUsernameIsDisplayedCorrectly(String name) {
-		Base.verifyElementAppears("//nav[@id='usernav']//span[text()='"+name+"']");
+	
+		Base.verifyElementAppearsUsingVariables("//nav[@id='usernav']//span[text()='"+name+"']");
 	}
 }

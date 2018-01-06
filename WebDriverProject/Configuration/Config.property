@@ -1,0 +1,23 @@
+**Nexus_HomePage
+
+viewAll = //ul[@class='subnav-actions clearfix']//a[@href='/games/']
+welcomeToNexusMods = //h1[text() = 'Welcome to Nexus Mods']
+allGames = //span[@class='currentgame']
+logIn = //div[@class='topnav']//a[@id='login']
+usernameField = //input[@id='form-username']
+passwordField = //input[@id='form-password']
+signInButton = //button[@class='btn signin']
+signOut = //nav[@id='usernav']//a[@id='sign-out']
+username = //nav[@id='usernav']//span[text()='\{name}\']
+
+**Nexus_ViewAllGamesPage
+
+viewAllGamesPage = //h1[text()='Our games']
+filterByNameField = //input[@id='f_name']
+selectSkyrim = //li[@id='game-tile-110']
+plus = //li[@id='game-tile-110']//ul[@class='btnexpand btnoverlay inline-flex']
+viewMods = //a[text()='View mods'] 
+addToFavorites = //a[text()='Add to favourites']
+plusViewMods = //span[@class='view-content']
+mouseHoverSkyrim = //a[text()='View mods']
+sortByDropDown = //select[@id='sort_by']

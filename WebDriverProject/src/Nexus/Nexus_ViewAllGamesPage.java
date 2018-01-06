@@ -2,6 +2,8 @@ package Nexus;
 
 import static org.testng.Assert.fail;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebElement;
 
 import TestScripts.Base;
@@ -9,70 +11,64 @@ import TestScripts.Base;
 
 public class Nexus_ViewAllGamesPage {
 	
-	public static void verifyViewAllGamesPageOpened() {
-		Base.verifyElementAppears("//h1[text()='Our games']");
+	public static void verifyViewAllGamesPageOpened() throws IOException {
+		Base.verifyElementAppears("viewAllGamesPage");
 	}
 	
-	public static void FilterByNameField(String enterValue) {
-		Base.enterText("//input[@id='f_name']", enterValue);
+	public static void FilterByNameField(String enterValue) throws IOException {
+		Base.enterText("filterByNameField", enterValue);
 	}
 	
-	public static void selectSkyrim() {
-		Base.clickOnElement("//li[@id='game-tile-110']");
+	public static void selectSkyrim() throws IOException {
+		Base.clickOnElement("selectSkyrim");
 	}
 	
 	
-	public static void mouseHoverPlus() {
-		Base.mouseHoverElement("//li[@id='game-tile-110']//ul[@class='btnexpand btnoverlay inline-flex']");
+	public static void mouseHoverPlus() throws IOException {
+		Base.mouseHoverElement("plus");
 	}
 	
-	public static void verifyViewModsIsDisplayed() {
-		Base.verifyElementAppears("//a[text()='View mods']");
+	public static void verifyViewModsIsDisplayed() throws IOException {
+		Base.verifyElementAppears("viewMods");
 	}
 	
-	public static void verifyAddToFavoritesIsDisplayed() {
-		Base.verifyElementAppears("//a[text()='Add to favourites']");
+	public static void verifyAddToFavoritesIsDisplayed() throws IOException {
+		Base.verifyElementAppears("addToFavorites");
 	}
 	
-	public static void clickViewMods() {
-		if(Base.findElement("//span[@class='view-content']").isDisplayed()) {
-			Base.clickOnElement("//span[@class='view-content']");
-		}
-		else {
-			System.out.println("Element could not be found!!!!!");
-			fail("Element "+ Base.findElement("//span[@class='view-content']").getTagName() +" could not be found!!!!!");
-		}
+	public static void clickViewMods() throws IOException {
+		Base.clickOnElement("plusViewMods");
 	}
 	
-	public static void mouseHoverSkyrim() {
-		Base.mouseHoverElement("//a[text()='View mods']");
+	public static void mouseHoverSkyrim() throws IOException {
+		Base.mouseHoverElement("mouseHoverSkyrim");
 	}
 	
-	public static void verifyFirstOptionInSortByDropdown() {
-		Base.verifyOptionsIsPresentInDropDown("//select[@id='sort_by']", "Mod count");
+	public static void verifyFirstOptionInSortByDropdown() throws IOException {
+		Base.verifyOptionsIsPresentInDropDown("sortByDropDown", "Mod count");
 	}
 	
-	public static void verifySecondOptionInSortByDropdown() {
-		Base.verifyOptionsIsPresentInDropDown("//select[@id='sort_by']", "Name");
+	public static void verifySecondOptionInSortByDropdown() throws IOException {
+		Base.verifyOptionsIsPresentInDropDown("sortByDropDown", "Name");
 	}
 	
-	public static void verifyThirdOptionInSortByDropdown() {
-		Base.verifyOptionsIsPresentInDropDown("//select[@id='sort_by']", "Date added");
+	public static void verifyThirdOptionInSortByDropdown() throws IOException {
+		Base.verifyOptionsIsPresentInDropDown("sortByDropDown", "Date added");
 	}
 	
-	public static void verifyFourthOptionInSortByDropdown() {
-		Base.verifyOptionsIsPresentInDropDown("//select[@id='sort_by']", "Download count");
+	public static void verifyFourthOptionInSortByDropdown() throws IOException {
+		Base.verifyOptionsIsPresentInDropDown("sortByDropDown", "Download count");
 	}
 	
-	public static void verifyOptionsInSortByDropdown() {
+	public static void verifyOptionsInSortByDropdown() throws IOException {
 		verifyFirstOptionInSortByDropdown();
 		verifySecondOptionInSortByDropdown();
 		verifyThirdOptionInSortByDropdown();
 		verifyFourthOptionInSortByDropdown();
 	}
 	
-	public static void selectOptionFromSortByDropdown(String optionToSelect) {
-		Base.SelectOptionDropDown("//select[@id='sort_by']", optionToSelect);
+	public static void selectOptionFromSortByDropdown(String optionToSelect) throws IOException {
+		Base.SelectOptionDropDown("sortByDropDown", optionToSelect);
 	}
 	
 }

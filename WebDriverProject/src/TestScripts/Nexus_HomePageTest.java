@@ -1,6 +1,9 @@
 package TestScripts;
 
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -21,7 +24,8 @@ public class Nexus_HomePageTest {
 	}
 	
 	@Test
-	public static void test1() throws InterruptedException {
+	public static void test1() throws InterruptedException, IOException {
+		System.out.println(Locator.testConfigWithVariables("username", name));
 		Nexus_HomePage.verifyHomePageOpens();
 		Nexus_HomePage.mouseHoverAllGames();
 		Nexus_HomePage.clickViewAll();
@@ -51,13 +55,13 @@ public class Nexus_HomePageTest {
 		Nexus_HomePage.clickSignOut();
 		Thread.sleep(2000);
 		Nexus_HomePage.verifyLogInButtonIsDisplayed();
-		System.out.println("pushing to gitHub");
+		
 		
 	}
 	
 	@AfterMethod
 	public static void afterMethod() {
-		Browser.closeBrowser();
+		//Browser.closeBrowser();
 	}
 	
 }
