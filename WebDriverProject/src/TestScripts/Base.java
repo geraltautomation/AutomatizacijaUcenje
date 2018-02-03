@@ -16,9 +16,16 @@ import org.openqa.selenium.support.ui.Select;
 import TestScripts.*;
 
 public class Base extends Browser {
+	
+	public static String fileToRead;
+	
+	public static String initializeConfigFile(String enterFileName) {
+		fileToRead = enterFileName;
+		return fileToRead;
+	}
 
 	public static WebElement findElement(String xpathExpression) throws IOException {
-		WebElement element = driver.findElement(By.xpath(Locator.testConfig(xpathExpression)));
+		WebElement element = driver.findElement(By.xpath(Locator.testConfig(xpathExpression, fileToRead)));
 		return element;
 	}
 	

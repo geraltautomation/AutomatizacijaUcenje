@@ -7,10 +7,12 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Locator {
-
-	public static String testConfig(String key) throws IOException {
 	
-	File src= new File("./Configuration/Config.property");
+	
+
+	public static String testConfig(String key, String fileToRead) throws IOException {
+	
+	File src= new File("./Configuration/" + fileToRead);
 	
 	FileInputStream fis = new FileInputStream(src);
 	
@@ -23,20 +25,7 @@ public class Locator {
 	return property.getProperty(key);
 	}
 	
-	public static String testConfigWithVariables(String key, String value) throws IOException {
-		
-		File src= new File("./Configuration/Config.property");
-		
-		FileInputStream fis = new FileInputStream(src);
-		
-		Properties property = new Properties();
-		
-		property.load(fis);
-		
-		String xPath = property.getProperty(key).toString();
-		
-		return xPath;
-		}
+	
 	
 	
 }

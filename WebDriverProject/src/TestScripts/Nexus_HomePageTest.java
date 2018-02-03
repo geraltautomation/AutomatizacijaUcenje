@@ -21,11 +21,11 @@ public class Nexus_HomePageTest {
 	@BeforeMethod
 	public static void goToNexus() throws InterruptedException {
 		Browser.useChrome("https://rd.nexusmods.com/");
+		Base.initializeConfigFile("Config.property");
 	}
 	
 	@Test
 	public static void test1() throws InterruptedException, IOException {
-		System.out.println(Locator.testConfigWithVariables("username", name));
 		Nexus_HomePage.verifyHomePageOpens();
 		Nexus_HomePage.mouseHoverAllGames();
 		Nexus_HomePage.clickViewAll();
@@ -61,7 +61,7 @@ public class Nexus_HomePageTest {
 	
 	@AfterMethod
 	public static void afterMethod() {
-		//Browser.closeBrowser();
+		Browser.closeBrowser();
 	}
 	
 }
